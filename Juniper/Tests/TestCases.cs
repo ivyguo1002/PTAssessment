@@ -62,8 +62,8 @@ namespace JuniperToys.Tests
             var contactPage = homePage.GoToContactPage();
             Assert.That(contactPage.IsLoaded(), Is.True);
 
-            contactPage.FillContactForm(new Contact() { ForeName = foreName, Email = email, Message = message });
-            contactPage.SubmitContact();
+            contactPage.FillContactForm(new Contact() { ForeName = foreName, Email = email, Message = message })
+                       .SubmitContact();
             Assert.That(contactPage.PopUpModal.Displayed, Is.True);
             contactPage.PopUpModal.WaitForHidden(Driver, 20);
             Assert.That(contactPage.GetAlertMessage(), Is.EqualTo(alertMsg));

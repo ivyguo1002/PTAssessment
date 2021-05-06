@@ -20,16 +20,18 @@ namespace JuniperToys.Pages
         {
         }
 
-        public void SubmitContact()
+        public ContactPage SubmitContact()
         {
             SubmitBtn.Click();
+            return this;
         }
 
-        public void FillContactForm(Contact contact)
+        public ContactPage FillContactForm(Contact contact)
         {
             ForeNameTextBox.SendKeys(contact.ForeName);
             EmailTextBox.SendKeys(contact.Email);
             MessageTextArea.SendKeys(contact.Message);
+            return this;
         }
     }
 }
