@@ -31,6 +31,7 @@ namespace JuniperToys.Pages
                     if (itemTds[0].Text == items[i].ItemName &&
                         Convert.ToInt32(itemTds[2].FindElement(By.TagName("input")).GetAttribute("value")) == items[i].ItemQuatity)
                     {
+                        Console.WriteLine("match" + i);
                         continue;
                     }
                 }

@@ -40,7 +40,8 @@ namespace JuniperToys.Framework.Extensions
             try
             {
                 var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOutInSeconds));
-                return wait.Until(driver => driver.FindElements(by));
+                wait.Until(driver => driver.FindElements(by).Count != 0);
+                return driver.FindElements(by);
             }
             catch (WebDriverTimeoutException)
             {

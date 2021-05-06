@@ -64,7 +64,8 @@ namespace JuniperToys.Tests
 
             contactPage.FillContactForm(new Contact() { ForeName = foreName, Email = email, Message = message });
             contactPage.SubmitContact();
-            contactPage.PopUpModal.WaitForHidden(Driver);
+            Assert.That(contactPage.PopUpModal.Displayed, Is.True);
+            contactPage.PopUpModal.WaitForHidden(Driver, 20);
             Assert.That(contactPage.GetAlertMessage(), Is.EqualTo(alertMsg));
         }
 
@@ -111,6 +112,8 @@ namespace JuniperToys.Tests
 
             var shopPage = homePage.GoToShopPage();
             Assert.That(shopPage.IsLoaded(), Is.True);
+            // Synchronization
+
 
             foreach (var item in items)
             {
@@ -121,10 +124,10 @@ namespace JuniperToys.Tests
             }
 
             var cartPage = shopPage.GoToCart();
-            Assert.That(cartPage.IsLoaded(), Is.True);
+            Assert.That(cartPage.IsLoaded(), Is.True, "Page title and path not updated");
 
             //Todo: if any other way to do the assert 
-            Assert.That(cartPage.VerifyItemsInCarts(items), Is.True);
+            Assert.That(cartPage.VerifyItemsInCarts(items), Is.True, "Shop items don't match");
 
         }
     }

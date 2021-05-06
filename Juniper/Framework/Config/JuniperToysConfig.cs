@@ -10,7 +10,7 @@ namespace JuniperToys.Framework.Config
     {
         public const string BaseUrl = "http://jupiter.cloud.planittesting.com/#";
         // Browser: chrome has some issues with webdriver wait
-        public const BrowserType Browser = Enums.BrowserType.firefox;
+        public const BrowserType Browser = Enums.BrowserType.chrome;
         public const int CommandTimeOut = 10;
         public const int PageLoadTimeOut = 10;
 
